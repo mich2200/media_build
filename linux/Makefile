@@ -20,10 +20,7 @@ TARDIR += include/dt-bindings/media/
 TARDIR += include/linux/platform_data/media/
 TARFILES += include/linux/mmc/sdio_ids.h
 TARFILES += include/sound/aci.h
-TARFILES += include/linux/usb/uvc.h
 TARFILES += include/uapi/linux/usb/video.h
-
-
 TARFILES += include/linux/via-core.h
 TARFILES += include/linux/ti_wilink_st.h
 TARFILES += include/linux/of_graph.h
@@ -34,7 +31,6 @@ TARFILES += include/trace/events/v4l2.h
 TARFILES += include/trace/events/vb2.h
 TARFILES += include/trace/events/pwc.h
 TARFILES += include/linux/pci_ids.h
-TARFILES += include/linux/atmel-isc-media.h
 
 TARFILES += include/misc/altera.h
 
@@ -42,6 +38,7 @@ TARFILES += include/misc/altera.h
 TARDIR += include/uapi/linux/dvb/
 TARFILES += include/uapi/linux/lirc.h
 TARFILES += include/uapi/linux/videodev2.h
+TARFILES += include/uapi/linux/meye.h
 TARFILES += include/uapi/linux/ivtv.h
 TARFILES += include/uapi/linux/ivtvfb.h
 TARFILES += include/uapi/linux/max2175.h
@@ -65,10 +62,10 @@ TARFILES += include/linux/overflow.h
 
 DATE := `git --git-dir $(DIR)/.git log -n1 '--pretty=format:%h %ai' |perl -ne 'print "$$2-$$1" if (m/([\da-f]+)\s+(\S+)/)'`
 #TODAY_TAR := linux-media-${DATE}.tar
-TODAY_TAR := linux-media-LATEST.tar
+TODAY_TAR := linux-media.tar
 TODAY_TAR_MD5 := ${TODAY_TAR}.bz2.md5
-LATEST_TAR := https://github.com/crazycat69/media_build/releases/download/latest/linux-media-LATEST.tar.bz2
-LATEST_TAR_MD5 := https://github.com/crazycat69/media_build/releases/download/latest/linux-media-LATEST.tar.bz2.md5
+LATEST_TAR := https://github.com/tbsdtv/media_build/releases/download/latest/linux-media.tar.bz2
+LATEST_TAR_MD5 := https://github.com/tbsdtv/media_build/releases/download/latest/linux-media.tar.bz2.md5
 
 default:
 	make -C ..
