@@ -19,10 +19,11 @@ my $kernel_version = '';
 #my $main_git_url = "git://linuxtv.org/media_tree.git";
 #my $main_branch = "master";
 #my $firmware_url = "http://www.linuxtv.org/downloads/firmware/";
+#my $firmware_tarball = "dvb-firmwares.tar.bz2";
 
-my $main_git_url = "https://github.com/crazycat69/linux_media.git";
+my $main_git_url = "https://github.com/tbsdtv/linux_media.git";
 my $main_branch = "latest";
-my $firmware_url = "https://github.com/crazycat69/media_build/releases/download/latest";
+my $firmware_url = "https://github.com/tbsdtv/media_build/releases/download/latest";
 my $firmware_tarball = "dvb-firmwares.tar.bz2";
 
 GetOptions('v|verbose' => \$level,
@@ -313,14 +314,6 @@ sub get_remote_name()
 
 		return ($name, 0);
 	}
-	if ($git[0] =~ m,^(http|https|git|git\+ssh|ssh):\/\/gitlab.com\/(.*),) {
-		my $name = $2;
-		$name =~ s,^/git,,;
-		$name =~ s,\.git$,,g;
-		$name =~ s,/,_,g;
-
-		return ($name, 0);
-	}
 
 	if (!($git[0] =~ m,^(http|https|git|git\+ssh|ssh):\/\/,)) {
 		my $name = $git[0];
@@ -530,7 +523,7 @@ if (@git == 2) {
 	print "****************************\n";
 	print "Updating the building system\n";
 	print "****************************\n";
-	system("git pull https://bitbucket.org/CrazyCat/media_build.git master");
+	system("git pull https://github.com/tbsdtv/media_build.git master");
 
 	run("make -C linux/ download", "Download failed");
 	run("make -C linux/ untar", "Untar failed");
